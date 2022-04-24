@@ -14,6 +14,7 @@ import "./newUser.css";
 export default function NewUser() {
   const [inputs, setInputs] = useState({});
   const [file, setFile] = useState(null);
+  const [mes, setMes] = useState('');
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -49,14 +50,14 @@ export default function NewUser() {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
             const user = { ...inputs, img: downloadURL };
             addUser(user, dispatch);
-            window.location.pathname = '/users';
+            setMes('Created Successfully');
           });
         }
       );
     } else {
       const user = { ...inputs, img: null };
       addUser(user, dispatch);
-      window.location.pathname = '/users';
+      setMes('Created Successfully');
     }
   };
 
@@ -101,6 +102,7 @@ export default function NewUser() {
         </div>
         <button className="newUserButton">Create</button>
       </form>
+      <p style={{color: 'green'}}>{mes}</p>
     </div>
   );
 }

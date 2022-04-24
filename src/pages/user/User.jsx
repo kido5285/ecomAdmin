@@ -116,7 +116,7 @@ export default function User() {
         </div>
         <div className="userUpdate">
           <span className="userUpdateTitle">Edit</span>
-          <form className="userUpdateForm">
+          <form className="userUpdateForm" onSubmit={handleClick}>
             <div className="userUpdateLeft">
               <div className="userUpdateItem">
                 <label>Username</label>
@@ -175,7 +175,7 @@ export default function User() {
                   onChange={(e) => setFile(e.target.files[0])}
                 />
               </div>
-              <button className="userUpdateButton" onClick={handleClick}>
+              <button className="userUpdateButton">
                 Update
               </button>
             </div>
